@@ -25,6 +25,7 @@ function newLetter() {
 	letterComputer = letter[Math.floor(Math.random() * letter.length)];
 	console.log(letterComputer + "    <<<<< If you want to cheat, this is the correct answer");
 }
+
 // Executes Computer's first choice.
 newLetter();
 
