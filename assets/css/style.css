@@ -5,10 +5,10 @@
 	animation: 0;
 }
 
-@keyframes hit {
+/*@keyframes hit {
 	0% {background-color: white;}
 	100% {background-color: red;}
-}
+}*/
 
 @keyframes warning {
 	0% { background-color: white;}
