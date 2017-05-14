@@ -1,0 +1,19 @@
+/*  Psychic-Game CSS  */
+
+#body {
+	background-color: white;
+	animation: 0;
+}
+
+@keyframes hit {
+	0% {background-color: white;}
+	100% {background-color: red;}
+}
+
+@keyframes warning {
+	0% { background-color: white;}
+	25% {background-color: white;}
+	50% { background-color: red;}
+	75% {background-color: white;}
+	100% { background-color: white;}
+}

@@ -5,7 +5,7 @@
 var wins = 0;			//	Number of wins
 var losses = 0;			//	Number of losses
 var lives = 9;			//  Number of guesses remaining
-var guesses;			//	Log of Player guesses
+var guesses = " ";		//	Log of Player guesses
 var letterComputer;		//  Computer's letter pick
 var letterPlayer;		//  Human's letter pick
 
@@ -23,10 +23,10 @@ var letter = 	["a","b","c","d","e","f",
 //	Computer Chooses a letter
 function newLetter() {
 	letterComputer = letter[Math.floor(Math.random() * letter.length)];
+	console.log(letterComputer + "    <<<<< If you want to cheat, this is the correct answer");
 }
 // Executes Computer's first choice.
 newLetter();
-console.log(letterComputer + "first");
 
 //  Player picks a letter
 document.onkeyup = function(event){
@@ -40,27 +40,33 @@ document.onkeyup = function(event){
 		alert("Correct");
 		wins++;
 		lives = 9;
-		guesses = "";
+		guesses = " ";
 		newLetter();
-		console.log(letterComputer + " Win");
 	} else {
 		alert("wrong, guess again");
 		lives--;
-		// Displays incorrect guess
+		//  Displays incorrect guess
 		guesses = guesses + " " + letterPlayer;
+		
 		// Game Over: lives reset and computer picks new letter
 		if (lives === 0) {
 			lives = 9;
 			losses++;
-			guesses = "";	
+			guesses = " ";	
 			newLetter();
-			console.log(letterComputer + " Loss");
 		}
 	}
 	//	Updates display
 	showWins.innerHTML = wins;
 	showLives.innerHTML = lives;
 	showLosses.innerHTML = losses;
-	showGuesses.innerHTLM = guesses;
-	console.log(guesses + "end");
+	showGuesses.innerHTML = guesses;
+	
+	// Hit screen animation pulsates at < 4 lives remaining
+	if (lives < 4) {
+		document.getElementById("body").style.animation = "warning" + " " + lives + "s" + " " + "infinite";
+	} else {
+		document.getElementById("body").style.animation = 0;
+	}
 };
+
